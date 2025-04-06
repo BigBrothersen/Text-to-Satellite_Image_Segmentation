@@ -1,41 +1,74 @@
-# Text-to-Classifier_Terrain
+# Text-to-Satellite Image Segmentation
 
-# Environment
-Python 3.12.x
-Pytorch
-pip3 install torch torchvision torchaudio
+This project implements a UNet-based model for satellite image segmentation using natural language descriptions.
 
+### Prerequisites
+- Python 3.12.x
+- PyTorch and related packages:
+  ```bash
+  pip3 install torch torchvision torchaudio
+  pip3 install pillow numpy matplotlib albumentations
+  ```
 
-# GitHub Collaboration Guide
+### Terrain Classes
+| Color | Class | Label |
+|-------|-------|-------|
+| Cyan | Urban | 0 |
+| Yellow | Agriculture | 1 |
+| Magenta | Rangeland | 2 |
+| Green | Forest | 3 |
+| Blue | Water | 4 |
+| White | Barren | 5 |
+| Black | Unknown | 6 |
 
-## First Time Setup
+## 1. Image Classifier (UNet)
 
-### Install Git
-Download and install Git from [git-scm.com](https://git-scm.com/).
+### Features
+- UNet architecture for image segmentation
+- 7-class terrain classification 
+- RGB satellite image input (256x256)
+- PyTorch implementation
 
-### Verify installation:
-git --version
+### Model Architecture
+The UNet model is configured with:
+- Input: RGB images (3 channels)
+- Output: 7 terrain classes
+- Feature maps: [64, 128, 256, 512]
 
-### Clone the Repository
-git clone https://github.com/BigBrothersen/Text-to-Satellite_Image_Segmentation
-cd Text-to-Satellite_Image_Segmentation
+## 2. NLP Text Processing
+[Coming Soon]
 
-### Set Up Branch Checking
-git checkout main
-git pull origin main
+## 3. GitHub Guide
 
-## Daily Workflow
+### Initial Setup
+1. Install Git from [git-scm.com](https://git-scm.com/)
+2. Clone the repository:
+   ```bash
+   git clone https://github.com/BigBrothersen/Text-to-Satellite_Image_Segmentation
+   cd Text-to-Satellite_Image_Segmentation
+   ```
 
-### Sync Updates
-git checkout main
-git pull origin main
+### Development Workflow
+1. Sync with main branch:
+   ```bash
+   git checkout main
+   git pull origin main
+   ```
 
-### Create a New Branch
-git checkout -b your-feature-branch
+2. Create and switch to feature branch:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
 
-### Stage and Commit
-git add.
-git commit -m "Descriptions"
+3. Make changes and commit:
+   ```bash
+   git add .
+   git commit -m "descriptive commit message"
+   git push origin feature/your-feature-name
+   ```
 
-### Push Changes
-git push origin your-feature-branch
+## Contributors
+- Kenneth Saputra Limanto (122040029)
+- Kevin William (122040033)
+- William Hansen Loe (122040046)
+- Nemtsov Vladimir (124100014)
