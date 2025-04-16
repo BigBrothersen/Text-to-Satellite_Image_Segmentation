@@ -1,0 +1,167 @@
+text,label,color
+Highlight the city areas with cyan,urban,cyan
+Please highlight the city areas,urban,cyan
+Highlight the urban regions with cyan,urban,cyan
+Please highlight the urban regions,urban,cyan
+Highlight the built-up zones with cyan,urban,cyan
+Please highlight the built-up zones,urban,cyan
+Mark the city areas with cyan,urban,cyan
+Please mark the city areas,urban,cyan
+Mark the urban regions with cyan,urban,cyan
+Please mark the urban regions,urban,cyan
+Mark the built-up zones with cyan,urban,cyan
+Please mark the built-up zones,urban,cyan
+Show the city areas with cyan,urban,cyan
+Please show the city areas,urban,cyan
+Show the urban regions with cyan,urban,cyan
+Please show the urban regions,urban,cyan
+Show the built-up zones with cyan,urban,cyan
+Please show the built-up zones,urban,cyan
+Color the city areas with cyan,urban,cyan
+Please color the city areas,urban,cyan
+Color the urban regions with cyan,urban,cyan
+Please color the urban regions,urban,cyan
+Color the built-up zones with cyan,urban,cyan
+Please color the built-up zones,urban,cyan
+Shade the city areas with cyan,urban,cyan
+Please shade the city areas,urban,cyan
+Shade the urban regions with cyan,urban,cyan
+Please shade the urban regions,urban,cyan
+Shade the built-up zones with cyan,urban,cyan
+Please shade the built-up zones,urban,cyan
+Highlight the farmlands with yellow,agriculture,yellow
+Please highlight the farmlands,agriculture,yellow
+Highlight the crop fields with yellow,agriculture,yellow
+Please highlight the crop fields,agriculture,yellow
+Highlight the agricultural zones with yellow,agriculture,yellow
+Please highlight the agricultural zones,agriculture,yellow
+Color the farmlands with yellow,agriculture,yellow
+Please color the farmlands,agriculture,yellow
+Color the crop fields with yellow,agriculture,yellow
+Please color the crop fields,agriculture,yellow
+Color the agricultural zones with yellow,agriculture,yellow
+Please color the agricultural zones,agriculture,yellow
+Mark the farmlands with yellow,agriculture,yellow
+Please mark the farmlands,agriculture,yellow
+Mark the crop fields with yellow,agriculture,yellow
+Please mark the crop fields,agriculture,yellow
+Mark the agricultural zones with yellow,agriculture,yellow
+Please mark the agricultural zones,agriculture,yellow
+Display the farmlands with yellow,agriculture,yellow
+Please display the farmlands,agriculture,yellow
+Display the crop fields with yellow,agriculture,yellow
+Please display the crop fields,agriculture,yellow
+Display the agricultural zones with yellow,agriculture,yellow
+Please display the agricultural zones,agriculture,yellow
+Show the rangelands with magenta,rangeland,magenta
+Please show the rangelands,rangeland,magenta
+Show the grasslands with magenta,rangeland,magenta
+Please show the grasslands,rangeland,magenta
+Show the pastures with magenta,rangeland,magenta
+Please show the pastures,rangeland,magenta
+Highlight the rangelands with magenta,rangeland,magenta
+Please highlight the rangelands,rangeland,magenta
+Highlight the grasslands with magenta,rangeland,magenta
+Please highlight the grasslands,rangeland,magenta
+Highlight the pastures with magenta,rangeland,magenta
+Please highlight the pastures,rangeland,magenta
+Shade the rangelands with magenta,rangeland,magenta
+Please shade the rangelands,rangeland,magenta
+Shade the grasslands with magenta,rangeland,magenta
+Please shade the grasslands,rangeland,magenta
+Shade the pastures with magenta,rangeland,magenta
+Please shade the pastures,rangeland,magenta
+Fill the rangelands with magenta,rangeland,magenta
+Please fill the rangelands,rangeland,magenta
+Fill the grasslands with magenta,rangeland,magenta
+Please fill the grasslands,rangeland,magenta
+Fill the pastures with magenta,rangeland,magenta
+Please fill the pastures,rangeland,magenta
+Color the forests with green,forest,green
+Please color the forests,forest,green
+Color the wooded regions with green,forest,green
+Please color the wooded regions,forest,green
+Color the tree-covered areas with green,forest,green
+Please color the tree-covered areas,forest,green
+Mark the forests with green,forest,green
+Please mark the forests,forest,green
+Mark the wooded regions with green,forest,green
+Please mark the wooded regions,forest,green
+Mark the tree-covered areas with green,forest,green
+Please mark the tree-covered areas,forest,green
+Highlight the forests with green,forest,green
+Please highlight the forests,forest,green
+Highlight the wooded regions with green,forest,green
+Please highlight the wooded regions,forest,green
+Highlight the tree-covered areas with green,forest,green
+Please highlight the tree-covered areas,forest,green
+Shade the forests with green,forest,green
+Please shade the forests,forest,green
+Shade the wooded regions with green,forest,green
+Please shade the wooded regions,forest,green
+Shade the tree-covered areas with green,forest,green
+Please shade the tree-covered areas,forest,green
+Highlight the water bodies with blue,water,blue
+Please highlight the water bodies,water,blue
+Highlight the lakes with blue,water,blue
+Please highlight the lakes,water,blue
+Highlight the rivers with blue,water,blue
+Please highlight the rivers,water,blue
+Show the water bodies with blue,water,blue
+Please show the water bodies,water,blue
+Show the lakes with blue,water,blue
+Please show the lakes,water,blue
+Show the rivers with blue,water,blue
+Please show the rivers,water,blue
+Color the water bodies with blue,water,blue
+Please color the water bodies,water,blue
+Color the lakes with blue,water,blue
+Please color the lakes,water,blue
+Color the rivers with blue,water,blue
+Please color the rivers,water,blue
+Fill the water bodies with blue,water,blue
+Please fill the water bodies,water,blue
+Fill the lakes with blue,water,blue
+Please fill the lakes,water,blue
+Fill the rivers with blue,water,blue
+Please fill the rivers,water,blue
+Fill the barren land with white,barren,white
+Please fill the barren land,barren,white
+Fill the desert areas with white,barren,white
+Please fill the desert areas,barren,white
+Fill the unused land with white,barren,white
+Please fill the unused land,barren,white
+Mark the barren land with white,barren,white
+Please mark the barren land,barren,white
+Mark the desert areas with white,barren,white
+Please mark the desert areas,barren,white
+Mark the unused land with white,barren,white
+Please mark the unused land,barren,white
+Highlight the barren land with white,barren,white
+Please highlight the barren land,barren,white
+Highlight the desert areas with white,barren,white
+Please highlight the desert areas,barren,white
+Highlight the unused land with white,barren,white
+Please highlight the unused land,barren,white
+Shade the barren land with white,barren,white
+Please shade the barren land,barren,white
+Shade the desert areas with white,barren,white
+Please shade the desert areas,barren,white
+Shade the unused land with white,barren,white
+Please shade the unused land,barren,white
+Leave the unknown regions with black,unknown,black
+Please leave the unknown regions,unknown,black
+Leave the unclassified areas with black,unknown,black
+Please leave the unclassified areas,unknown,black
+Mask the unknown regions with black,unknown,black
+Please mask the unknown regions,unknown,black
+Mask the unclassified areas with black,unknown,black
+Please mask the unclassified areas,unknown,black
+Shade the unknown regions with black,unknown,black
+Please shade the unknown regions,unknown,black
+Shade the unclassified areas with black,unknown,black
+Please shade the unclassified areas,unknown,black
+Mark the unknown regions with black,unknown,black
+Please mark the unknown regions,unknown,black
+Mark the unclassified areas with black,unknown,black
+Please mark the unclassified areas,unknown,black
