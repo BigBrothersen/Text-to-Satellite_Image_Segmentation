@@ -36,7 +36,51 @@ The UNet model is configured with:
 - Feature maps: [64, 128, 256, 512]
 
 ## 2. NLP Text Processing
-[Coming Soon]
+
+### Features
+- TF-IDF based text processing
+- Interactive and batch processing modes
+- Query history tracking
+- Confidence scoring for matches
+
+### Usage
+1. Install required packages:
+   ```bash
+   pip install scikit-learn pandas numpy joblib
+   ```
+
+2. Interactive Terminal Mode:
+   ```bash
+   python process_queries.py
+   ```
+   - Enter natural language queries
+   - Get immediate results with confidence scores
+   - History saved to `data-nlp/inputHistory.txt` and `data-nlp/outputHistory.txt`
+
+3. Batch Processing Mode:
+   ```bash
+   python batch_process.py input.in output.out
+   ```
+   - Process multiple queries from input file
+   - Results saved to output file
+   - Simple JSON format for integration
+
+### Input Examples
+```
+"show the forest areas"
+"highlight urban regions"
+"display water bodies"
+"mark agricultural zones"
+```
+
+### Output Format
+```json
+{
+    "label": "forest",
+    "color": "green",
+    "confidence": 0.85
+}
+```
 
 ## 3. GitHub Guide
 

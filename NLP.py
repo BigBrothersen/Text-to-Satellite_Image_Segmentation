@@ -113,8 +113,8 @@ class NLPProcessor:
 if __name__ == "__main__":
     import time
     
-    # Initialize the processor
-    csv_path = "data-nlp/satellite_image_queries.csv"
+    # Update the CSV path
+    csv_path = "c:/Project/CSC3180/Text-to-Satellite_Image_Segmentation/data-nlp/satellite_image_queries.csv"
     processor = NLPProcessor(csv_path)
     
     # Save the model after training
