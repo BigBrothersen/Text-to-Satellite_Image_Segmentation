@@ -6,8 +6,13 @@ This project implements a UNet-based model for satellite image segmentation usin
 - Python 3.12.x
 - PyTorch and related packages:
   ```bash
-  pip3 install torch torchvision torchaudio
-  pip3 install pillow numpy matplotlib albumentations
+  pip install torch torchvision torchaudio
+  pip install pillow numpy matplotlib albumentations
+  ```
+- NLP related packages:
+  ```bash
+  pip install transformers torch sentence-transformers
+  pip install tqdm pandas numpy joblib
   ```
 
 ### Terrain Classes
@@ -38,48 +43,52 @@ The UNet model is configured with:
 ## 2. NLP Text Processing
 
 ### Features
-- TF-IDF based text processing
+- BERT-based text processing for improved semantic understanding
+- Support for compound queries (e.g., "show forests and urban areas")
 - Interactive and batch processing modes
 - Query history tracking
 - Confidence scoring for matches
+- Model retraining capability
 
 ### Usage
-1. Install required packages:
-   ```bash
-   pip install scikit-learn pandas numpy joblib
-   ```
-
-2. Interactive Terminal Mode:
+1. Interactive Terminal Mode:
    ```bash
    python process_queries.py
    ```
    - Enter natural language queries
    - Get immediate results with confidence scores
-   - History saved to `data-nlp/inputHistory.txt` and `data-nlp/outputHistory.txt`
+   - Supports multiple labels in single query
+   - History saved to `data-nlp/logs/inputHistory.txt` and `data-nlp/logs/outputHistory.txt`
 
-3. Batch Processing Mode:
+2. Batch Processing Mode:
    ```bash
    python batch_process.py input.in output.out
    ```
    - Process multiple queries from input file
    - Results saved to output file
+   - Supports compound queries
    - Simple JSON format for integration
 
 ### Input Examples
 ```
-"show the forest areas"
-"highlight urban regions"
-"display water bodies"
-"mark agricultural zones"
+"show forests and urban areas"
+"highlight water bodies and agriculture"
+"display desert regions"
+"mark agricultural zones and forests"
 ```
 
 ### Output Format
 ```json
-{
-    "label": "forest",
-    "color": "green",
-    "confidence": 0.85
-}
+[
+    {
+        "label": "forest",
+        "color": "green"
+    },
+    {
+        "label": "urban",
+        "color": "cyan"
+    }
+]
 ```
 
 ## 3. GitHub Guide

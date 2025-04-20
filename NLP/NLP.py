@@ -8,12 +8,13 @@ from sklearn.metrics.pairwise import cosine_similarity
 from tqdm import tqdm
 
 class NLPProcessor:
-    def __init__(self, csv_path: str, model_dir: str = None):
+    def __init__(self, csv_path: str, model_dir: str = None, force_retrain: bool = False):
         """
         Initialize the NLP processor with BERT
         Args:
             csv_path: Path to training data CSV
             model_dir: Directory to save/load model files
+            force_retrain: If True, retrain model even if it exists
         """
         # Get the directory where the script is located
         script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -31,10 +32,15 @@ class NLPProcessor:
         
         # Load or create new model
         model_path = os.path.join(self.model_dir, "bert_embeddings.pkl")
-        if os.path.exists(model_path):
+        
+        if os.path.exists(model_path) and not force_retrain:
             self.load_model(model_path)
         else:
+            if csv_path is None:
+                raise ValueError("CSV path required for training new model")
+            print("Training new model...")
             self.train_model(csv_path)
+            self.save_model(model_path)
     
     def train_model(self, csv_path: str):
         """Train the model with new data"""
@@ -144,10 +150,15 @@ if __name__ == "__main__":
     script_dir = os.path.dirname(os.path.abspath(__file__))
     
     # Build the correct path to the CSV file
-    csv_path = os.path.join(script_dir, "data-nlp", "csv", "satellite_image_queries.csv")
+    csv_name = "satellite_image_queries_2.csv"  # Make sure this matches your actual filename
+    csv_path = os.path.join(script_dir, "data-nlp", "csv", csv_name)
+    
+    # Verify file exists before proceeding
+    if not os.path.exists(csv_path):
+        raise FileNotFoundError(f"CSV file not found at: {csv_path}\nPlease check the filename and path.")
     
     print(f"Looking for CSV file at: {csv_path}")
-    processor = NLPProcessor(csv_path)
+    processor = NLPProcessor(csv_path, force_retrain=True)
     
     print(f"\nInitialization time: {time.time() - start_time:.2f} seconds")
     
