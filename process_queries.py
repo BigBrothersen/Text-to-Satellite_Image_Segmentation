@@ -4,9 +4,9 @@ import json
 import os
 
 class QueryProcessor:
-    def __init__(self, csv_path: str):
-        """Initialize the processor and create necessary files/directories"""
-        self.nlp = NLPProcessor(csv_path)
+    def __init__(self, model_dir: str = "models"):
+        """Initialize the processor using saved model"""
+        self.nlp = NLPProcessor(None, model_dir=model_dir)  # Pass None for csv_paths
         self.input_history = "data-nlp/inputHistory.txt"
         self.output_history = "data-nlp/outputHistory.txt"
         
@@ -74,9 +74,8 @@ class QueryProcessor:
                 continue
 
 def main():
-    # Initialize processor with your training data
-    csv_path = "data-nlp/satellite_image_queries.csv"
-    processor = QueryProcessor(csv_path)
+    # Just use the saved model from models directory
+    processor = QueryProcessor("models")  # We only need the model directory
     
     print("Natural Language Query Processor")
     print("================================")
