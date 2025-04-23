@@ -82,14 +82,17 @@ class NLPProcessor:
         self.df = model_state['training_data']
         print(f"Model loaded from {model_path}")
 
-    def process_query(self, query: str, threshold: float = 0.7) -> List[Dict[str, Union[str, float]]]:
+    def process_query(self, query: str, threshold: float = 0.85) -> List[Dict[str, Union[str, float]]]:
         """
         Process a natural language query and return structured output
         Args:
             query: Input text query
-            threshold: Minimum similarity score to consider a match valid
+            threshold: Minimum similarity score to consider a match valid (increased from 0.7 to 0.85)
         """
         try:
+            # Convert query to lowercase
+            query = query.lower()
+            
             # Encode input query using BERT
             query_embedding = self.bert_model.encode([query])[0]
             
@@ -101,9 +104,11 @@ class NLPProcessor:
             for idx, confidence in enumerate(similarities):
                 if confidence >= threshold:
                     match = self.df.iloc[idx]
+                    # Convert NaN to None if needed
+                    color = None if pd.isna(match['color']) else match['color']
                     matches.append({
                         'label': match['label'],
-                        'color': match['color'],
+                        'color': color,  # Handle NaN values
                         'confidence': float(confidence),
                         'matched_query': match['text']
                     })
@@ -150,7 +155,7 @@ if __name__ == "__main__":
     script_dir = os.path.dirname(os.path.abspath(__file__))
     
     # Build the correct path to the CSV file
-    csv_name = "satellite_image_queries_2.csv"  # Make sure this matches your actual filename
+    csv_name = "satellite_image_queries.csv"  # Make sure this matches your actual filename
     csv_path = os.path.join(script_dir, "data-nlp", "csv", csv_name)
     
     # Verify file exists before proceeding

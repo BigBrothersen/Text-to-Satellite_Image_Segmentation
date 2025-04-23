@@ -48,11 +48,11 @@ class QueryProcessor:
         
         while True:
             try:
-                # Get user input
-                query = input("> ").strip()
+                # Get user input and convert to lowercase
+                query = input("> ").strip().lower()
                 
                 # Check for exit condition
-                if query.lower() == 'quit':
+                if query == 'quit':
                     break
                 
                 # Generate unique ID
@@ -62,12 +62,13 @@ class QueryProcessor:
                 self.save_input(query, query_id)
                 
                 # Split query by 'and' to handle multiple labels
-                sub_queries = [q.strip() for q in query.split(' and ')]
+                sub_queries = [q.strip().lower() for q in query.split(' and ')]
                 all_results = []
                 
                 # Process each sub-query
                 for sub_query in sub_queries:
-                    result = self.nlp.process_query(sub_query)
+                    # Set higher threshold for interactive queries
+                    result = self.nlp.process_query(sub_query, threshold=0.85)
                     if result[0].get('label'):  # Only add if valid result found
                         all_results.extend(result)
                 
@@ -102,5 +103,5 @@ def main():
     print("================================")
     processor.process_input()
 
-if __name__ == "__main__":
+if __name__ == "__main__": 
     main()

@@ -32,11 +32,12 @@ def process_batch(input_file: str, output_file: str, model_path: str):
          open(output_file, 'w', encoding='utf-8') as fout:
         
         for line in fin:
-            query = line.strip()
+            # Convert query to lowercase
+            query = line.strip().lower()
             if not query:  # Skip empty lines
                 continue
             
-            # Split query by 'and' to handle multiple labels
+            # Split query by 'and' to handle multiple labels (maintain lowercase)
             sub_queries = [q.strip() for q in query.split(' and ')]
             all_results = []
             
@@ -48,8 +49,11 @@ def process_batch(input_file: str, output_file: str, model_path: str):
             
             # Get unique results with highest confidence for each label
             unique_results = {}
-            for result in sorted(all_results, key=lambda x: x['confidence'], reverse=True):
+            # Sort all results by confidence first
+            sorted_results = sorted(all_results, key=lambda x: x['confidence'], reverse=True)
+            for result in sorted_results:
                 label = result['label']
+                # Only add if label not seen yet (first occurrence will be highest confidence)
                 if label and label not in unique_results:
                     unique_results[label] = {
                         'label': label,
