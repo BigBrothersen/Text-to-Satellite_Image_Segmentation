@@ -43,7 +43,8 @@ def process_batch(input_file: str, output_file: str, model_path: str):
             
             # Process each sub-query
             for sub_query in sub_queries:
-                results = processor.process_query(sub_query)
+                # Use same threshold progression as NLP.py
+                results = processor.process_query(sub_query, initial_threshold=0.90)
                 if results[0].get('label'):  # Only add if valid result found
                     all_results.extend(results)
             

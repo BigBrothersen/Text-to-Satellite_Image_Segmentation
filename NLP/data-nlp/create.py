@@ -17,6 +17,19 @@ colors = ["cyan", "yellow", "magenta", "green", "blue", "white", "None"]
 # Define text templates
 templates = [
     "<object> <color>",
+    "Hi <object> <color>",
+    "Hello <object> <color>",
+    "Hey <object> <color>",
+    "Go <color> <object>",
+    "Make <object> <color>",
+    "<object> be <color>",
+    "<object> is <color>",
+    "<object> <color> please",
+    "<object> <color> please!",
+    "<object> <color> thx",
+    "<object> <color> thanks",
+    "<object> <color> please :)",
+    "I want <object> <color>",
     "Is the <object> <color>",
     "Can you show me the <object> <color>",
     "Please highlight the <object> <color>",
@@ -24,6 +37,20 @@ templates = [
     "The <object> <color>",
     "The color of <object> is <color>",
     "The <object> is <color>",
+    "Do <object> <color>",
+    "Also <object> <color>",
+    "Want to <object> <color>",
+    "Color <object> <color>",
+    "Show <object> <color>",
+    "Display <object> <color>",
+    "Present <object> <color>",
+    "Reveal <object> <color>",
+    "Exhibit <object> <color>",
+    "Demonstrate <object> <color>",
+    "Illustrate <object> <color>",
+    "Expose <object> <color>",
+    "Unveil <object> <color>",
+    "Present me the <object> <color>",
     "Let me see the <object> <color>",
     "Identify the <object> <color>",
     "Indicate the <object> <color>",
@@ -57,12 +84,12 @@ def generate_queries():
                         text = text.replace(" <color>", "")  # Remove color and space before it
                         text = text.replace("<color> ", "")  # Remove color and space after it
                         text = text.replace("<color>", "")   # Remove any remaining color placeholder
-                        text = text.replace("in ", "")       # Remove prepositions related to color
-                        text = text.replace("using ", "")
-                        text = text.replace("with ", "")
-                        text = text.replace("colored in ", "")
-                        text = text.replace("appear in ", "")
-                        text = text.replace("is ", "")
+                        text = text.replace("in", "")       # Remove prepositions related to color
+                        text = text.replace("using", "")
+                        text = text.replace("with", "")
+                        text = text.replace("colored in", "")
+                        text = text.replace("appear in", "")
+                        text = text.replace("is", "")
                         # Replace object placeholder
                         text = text.replace("<object>", obj_variation)
                         # Clean up any double spaces

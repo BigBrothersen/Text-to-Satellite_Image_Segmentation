@@ -67,8 +67,8 @@ class QueryProcessor:
                 
                 # Process each sub-query
                 for sub_query in sub_queries:
-                    # Set higher threshold for interactive queries
-                    result = self.nlp.process_query(sub_query, threshold=0.85)
+                    # Start with highest threshold and decrease if needed
+                    result = self.nlp.process_query(sub_query, initial_threshold=0.90)
                     if result[0].get('label'):  # Only add if valid result found
                         all_results.extend(result)
                 

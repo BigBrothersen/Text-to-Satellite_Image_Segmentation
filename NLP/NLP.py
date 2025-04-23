@@ -82,45 +82,49 @@ class NLPProcessor:
         self.df = model_state['training_data']
         print(f"Model loaded from {model_path}")
 
-    def process_query(self, query: str, threshold: float = 0.85) -> List[Dict[str, Union[str, float]]]:
+    def process_query(self, query: str, initial_threshold: float = 0.90) -> List[Dict[str, Union[str, float]]]:
         """
         Process a natural language query and return structured output
         Args:
             query: Input text query
-            threshold: Minimum similarity score to consider a match valid (increased from 0.7 to 0.85)
+            initial_threshold: Initial threshold value (will decrease if no matches found)
         """
         try:
-            # Convert query to lowercase
             query = query.lower()
             
-            # Encode input query using BERT
-            query_embedding = self.bert_model.encode([query])[0]
+            # More granular threshold progression
+            thresholds = [0.90, 0.85, 0.80, 0.75, 0.70]
             
-            # Calculate similarities with all training queries
-            similarities = cosine_similarity([query_embedding], self.query_embeddings)[0]
+            for current_threshold in thresholds:
+                # Encode input query using BERT
+                query_embedding = self.bert_model.encode([query])[0]
+                
+                # Calculate similarities
+                similarities = cosine_similarity([query_embedding], self.query_embeddings)[0]
+                
+                # Find matches above current threshold
+                matches = []
+                for idx, confidence in enumerate(similarities):
+                    if confidence >= current_threshold:
+                        match = self.df.iloc[idx]
+                        color = None if pd.isna(match['color']) else match['color']
+                        matches.append({
+                            'label': match['label'],
+                            'color': color,
+                            'confidence': float(confidence),
+                            'matched_query': match['text']
+                        })
+                
+                # If matches found, return them
+                if matches:
+                    return sorted(matches, key=lambda x: x['confidence'], reverse=True)
             
-            # Find all matches above threshold
-            matches = []
-            for idx, confidence in enumerate(similarities):
-                if confidence >= threshold:
-                    match = self.df.iloc[idx]
-                    # Convert NaN to None if needed
-                    color = None if pd.isna(match['color']) else match['color']
-                    matches.append({
-                        'label': match['label'],
-                        'color': color,  # Handle NaN values
-                        'confidence': float(confidence),
-                        'matched_query': match['text']
-                    })
-            
-            # Sort matches by confidence
-            matches = sorted(matches, key=lambda x: x['confidence'], reverse=True)
-            
-            return matches if matches else [{
+            # If no matches found at any threshold
+            return [{
                 'label': None,
                 'color': None,
                 'confidence': 0.0,
-                'error': 'No matching query found above threshold'
+                'error': 'No matching query found above minimum threshold'
             }]
 
         except Exception as e:
