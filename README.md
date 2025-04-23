@@ -12,7 +12,7 @@ This project implements a UNet-based model for satellite image segmentation usin
 - NLP related packages:
   ```bash
   pip install transformers torch sentence-transformers
-  pip install tqdm pandas numpy joblib
+  pip install tqdm pandas numpy joblib scikit-learn
   ```
 
 ### Terrain Classes
@@ -43,52 +43,84 @@ The UNet model is configured with:
 ## 2. NLP Text Processing
 
 ### Features
-- BERT-based text processing for improved semantic understanding
+- BERT-based text processing with semantic similarity matching
 - Support for compound queries (e.g., "show forests and urban areas")
+- Confidence-based thresholding (0.90 - 0.70)
+- Dynamic color assignment based on natural language input
 - Interactive and batch processing modes
-- Query history tracking
-- Confidence scoring for matches
+- Query history tracking and logging
 - Model retraining capability
 
 ### Usage
+
 1. Interactive Terminal Mode:
    ```bash
+   cd NLP
    python process_queries.py
    ```
-   - Enter natural language queries
-   - Get immediate results with confidence scores
-   - Supports multiple labels in single query
-   - History saved to `data-nlp/logs/inputHistory.txt` and `data-nlp/logs/outputHistory.txt`
+   Features:
+   - Real-time query processing
+   - Confidence score display
+   - Multiple label support
+   - History logging
 
 2. Batch Processing Mode:
    ```bash
+   cd NLP
    python batch_process.py input.in output.out
    ```
-   - Process multiple queries from input file
-   - Results saved to output file
-   - Supports compound queries
-   - Simple JSON format for integration
+   Features:
+   - Process multiple queries
+   - JSON output format
+   - Automatic threshold adjustment
+   - Compound query support
 
-### Input Examples
-```
-"show forests and urban areas"
-"highlight water bodies and agriculture"
-"display desert regions"
-"mark agricultural zones and forests"
-```
+3. Color Mapping Generation:
+   ```bash
+   python colorMap.py
+   ```
+   Features:
+   - Interactive query input
+   - Dynamic color reassignment
+   - Maintains label indices
+   - Outputs formatted color mapping
 
-### Output Format
-```json
-[
-    {
-        "label": "forest",
-        "color": "green"
-    },
-    {
-        "label": "urban",
-        "color": "cyan"
-    }
-]
+### Input/Output Examples
+
+1. Input Query:
+   ```
+   show forests green and urban areas yellow
+   ```
+
+2. NLP Output (`1.out`):
+   ```json
+   {"label": "forest", "color": "green"}
+   {"label": "urban", "color": "yellow"}
+   ```
+
+3. Color Mapping (`result.out`):
+   ```
+   (255, 255, 0): 0    # Urban
+   (0, 0, 0): 1    # Agriculture
+   (0, 0, 0): 2    # Rangeland
+   (0, 255, 0): 3    # Forest
+   (0, 0, 255): 4    # Water
+   (0, 0, 0): 5    # Barren
+   (0, 0, 0): 6    # Unknown
+   ...
+   ```
+
+### File Structure
+```
+NLP/
+├── models/              # BERT model files
+├── data-nlp/
+│   ├── csv/            # Training data
+│   └── logs/           # Query history
+├── NLP.py              # Core NLP processor
+├── batch_process.py    # Batch processing
+├── process_queries.py  # Interactive mode
+└── create.py          # Training data generator
 ```
 
 ## 3. GitHub Guide
