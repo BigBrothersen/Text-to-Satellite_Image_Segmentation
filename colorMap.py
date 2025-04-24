@@ -4,13 +4,13 @@ from typing import Dict, Tuple
 
 # Original color mapping
 ORIGINAL_COLOUR_MAPPING = {
-    (0, 255, 255): 0,    # Urban (Cyan)
-    (255, 255, 0): 1,    # Agriculture (Yellow)
-    (255, 0, 255): 2,    # Rangeland (Magenta)
-    (0, 255, 0): 3,      # Forest (Green)
-    (0, 0, 255): 4,      # Water (Blue)
-    (255, 255, 255): 5,  # Barren (White)
-    (0, 0, 0): 6         # Unknown (Black)
+    0: (0, 255, 255),    # Urban (Cyan)
+    1: (255, 255, 0),    # Agriculture (Yellow)
+    2: (255, 0, 255),    # Rangeland (Magenta)
+    3: (0, 255, 0),      # Forest (Green)
+    4: (0, 0, 255),      # Water (Blue)
+    5: (255, 255, 255),  # Barren (White)
+    6: (0, 0, 0)         # Unknown (Black)
 }
 
 # Label indices to names mapping
@@ -45,13 +45,13 @@ LABEL_TO_DEFAULT_COLOR = {
     'barren': 'white'
 }
 
-def process_color_mapping(nlp_output_file: str) -> Dict[Tuple[int, int, int], int]:
+def process_color_mapping(nlp_output_file: str) -> Dict[int, Tuple[int, int, int]]:
     """
     Process NLP output and create new color mapping.
     Maintains original indices but updates RGB values based on NLP output.
     """
     # Initialize all indices with black color (unknown)
-    new_mapping = {(0, 0, 0): i for i in range(7)}
+    new_mapping = {i: (0, 0, 0) for i in range(7)}
     
     # Read NLP output
     with open(nlp_output_file, 'r') as f:
@@ -64,8 +64,8 @@ def process_color_mapping(nlp_output_file: str) -> Dict[Tuple[int, int, int], in
         
         # Find the index for this label
         label_index = None
-        for _, idx in ORIGINAL_COLOUR_MAPPING.items():
-            if LABELS_MAPPING[idx].lower() == label:
+        for idx, label_name in LABELS_MAPPING.items():
+            if label_name.lower() == label:
                 label_index = idx
                 break
                 
@@ -79,26 +79,21 @@ def process_color_mapping(nlp_output_file: str) -> Dict[Tuple[int, int, int], in
                 rgb = COLOR_TO_RGB[default_color]
             
             # Update mapping maintaining the original index
-            new_mapping[rgb] = label_index
+            new_mapping[label_index] = rgb
     
     return new_mapping
 
-def save_mapping(mapping: Dict[Tuple[int, int, int], int], output_file: str):
+def save_mapping(mapping: Dict[int, Tuple[int, int, int]], output_file: str):
     """
     Save color mapping to file in ordered format.
     Ensures all indices 0-6 are present and in order.
     """
-    # Create reverse mapping (index to RGB)
-    index_to_rgb = {idx: (0, 0, 0) for idx in range(7)}  # Default all to black
-    for rgb, idx in mapping.items():
-        index_to_rgb[idx] = rgb
-    
     # Write in order with comments
     with open(output_file, 'w') as f:
         labels = ["Urban", "Agriculture", "Rangeland", "Forest", "Water", "Barren", "Unknown"]
         for i in range(7):
-            rgb = index_to_rgb[i]
-            f.write(f"{rgb}: {i}    # {labels[i]}\n")
+            rgb = mapping[i]
+            f.write(f"{i}: {rgb}    # {labels[i]}\n")
 
 def get_user_input() -> str:
     """Get queries from user input"""
