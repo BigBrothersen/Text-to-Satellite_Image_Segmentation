@@ -1,0 +1,9 @@
+{"id": "20250416_175602_951584", "timestamp": "2025-04-16T17:56:02.958584", "result": {"label": null, "color": null, "confidence": 0.19801232017486153, "error": "No matching query found above threshold"}}
+{"id": "20250416_175615_134854", "timestamp": "2025-04-16T17:56:15.137856", "result": {"label": null, "color": null, "confidence": 0.0, "error": "No matching query found above threshold"}}
+{"id": "20250416_175900_886887", "timestamp": "2025-04-16T17:59:00.890884", "result": {"label": "urban", "color": "cyan", "confidence": 1.0000000000000002, "matched_query": "Highlight the city areas with cyan"}}
+{"id": "20250416_175912_606168", "timestamp": "2025-04-16T17:59:12.607169", "result": {"label": null, "color": null, "confidence": 0.694898394507691, "error": "No matching query found above threshold"}}
+{"id": "20250416_180022_212842", "timestamp": "2025-04-16T18:00:22.216852", "result": {"label": "urban", "color": "cyan", "confidence": 0.885975968632804, "matched_query": "Please highlight the city areas"}}
+{"id": "20250416_180033_471190", "timestamp": "2025-04-16T18:00:33.475215", "result": {"label": "urban", "color": "cyan", "confidence": 0.8117848161997206, "matched_query": "Please highlight the city areas"}}
+{"id": "20250416_180040_448193", "timestamp": "2025-04-16T18:00:40.478315", "result": {"label": "urban", "color": "cyan", "confidence": 0.8117848161997206, "matched_query": "Please highlight the city areas"}}
+{"id": "20250416_180049_820966", "timestamp": "2025-04-16T18:00:49.823966", "result": {"label": "urban", "color": "cyan", "confidence": 0.885975968632804, "matched_query": "Please highlight the city areas"}}
+{"id": "20250416_180100_917797", "timestamp": "2025-04-16T18:01:00.921792", "result": {"label": null, "color": null, "confidence": 0.673181452178713, "error": "No matching query found above threshold"}}

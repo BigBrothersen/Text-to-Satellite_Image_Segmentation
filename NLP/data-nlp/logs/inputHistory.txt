@@ -1,0 +1,24 @@
+{"id": "20250420_142621_146338", "timestamp": "2025-04-20T14:26:21.148284", "query": "show forests and urban areas"}
+{"id": "20250420_143005_453394", "timestamp": "2025-04-20T14:30:05.454559", "query": "please highlight urban and barren areas"}
+{"id": "20250420_143135_839457", "timestamp": "2025-04-20T14:31:35.839457", "query": "urban"}
+{"id": "20250420_143146_521151", "timestamp": "2025-04-20T14:31:46.521151", "query": "forest"}
+{"id": "20250420_143244_631680", "timestamp": "2025-04-20T14:32:44.632710", "query": "forest please"}
+{"id": "20250420_143637_304089", "timestamp": "2025-04-20T14:36:37.304089", "query": "Show the urban regions with black"}
+{"id": "20250420_145420_193196", "timestamp": "2025-04-20T14:54:20.194197", "query": "please highlight urban with black"}
+{"id": "20250420_145450_898326", "timestamp": "2025-04-20T14:54:50.899336", "query": "apply blue to wood"}
+{"id": "20250420_145500_461554", "timestamp": "2025-04-20T14:55:00.461554", "query": "Apply blue to the woods regions"}
+{"id": "20250420_172749_324494", "timestamp": "2025-04-20T17:27:49.325471", "query": "Apply blue to the woods"}
+{"id": "20250420_172807_624967", "timestamp": "2025-04-20T17:28:07.625963", "query": "forest"}
+{"id": "20250420_172816_637641", "timestamp": "2025-04-20T17:28:16.638642", "query": "yellow"}
+{"id": "20250420_172822_698803", "timestamp": "2025-04-20T17:28:22.699804", "query": "green forest"}
+{"id": "20250420_172829_309587", "timestamp": "2025-04-20T17:28:29.310557", "query": "forests green"}
+{"id": "20250423_085219_889346", "timestamp": "2025-04-23T08:52:19.890344", "query": "forest"}
+{"id": "20250423_090645_860164", "timestamp": "2025-04-23T09:06:45.861193", "query": "forest yellow"}
+{"id": "20250423_090849_977750", "timestamp": "2025-04-23T09:08:49.978920", "query": "forest yellow"}
+{"id": "20250423_092311_977585", "timestamp": "2025-04-23T09:23:11.978659", "query": "do water"}
+{"id": "20250423_092318_844889", "timestamp": "2025-04-23T09:23:18.844889", "query": "water"}
+{"id": "20250423_092325_606443", "timestamp": "2025-04-23T09:23:25.606443", "query": "do water"}
+{"id": "20250423_092351_011634", "timestamp": "2025-04-23T09:23:51.011634", "query": "find the forest"}
+{"id": "20250423_092359_125795", "timestamp": "2025-04-23T09:23:59.126785", "query": "do the forest"}
+{"id": "20250423_092404_300659", "timestamp": "2025-04-23T09:24:04.301662", "query": "do the forest appear"}
+{"id": "20250423_092407_542351", "timestamp": "2025-04-23T09:24:07.542351", "query": "do the forest"}
