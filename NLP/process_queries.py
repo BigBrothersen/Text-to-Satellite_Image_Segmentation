@@ -65,12 +65,25 @@ class QueryProcessor:
                 sub_queries = [q.strip().lower() for q in query.split(' and ')]
                 all_results = []
                 
-                # Process each sub-query
+                # Process each sub-query with multiple thresholds
                 for sub_query in sub_queries:
-                    # Start with highest threshold and decrease if needed
-                    result = self.nlp.process_query(sub_query, initial_threshold=0.90)
-                    if result[0].get('label'):  # Only add if valid result found
-                        all_results.extend(result)
+                    # Try different thresholds to find result with color
+                    thresholds = [0.90, 0.85, 0.80]
+                    best_result = None
+                    
+                    for threshold in thresholds:
+                        results = self.nlp.process_query(sub_query, initial_threshold=threshold)
+                        if results and results[0].get('label'):
+                            # If we find a result with color, use it
+                            if results[0].get('color') is not None:
+                                best_result = results[0]
+                                break
+                            # Otherwise, keep the highest confidence result
+                            elif best_result is None or results[0]['confidence'] > best_result['confidence']:
+                                best_result = results[0]
+                    
+                    if best_result:
+                        all_results.append(best_result)
                 
                 # If no results found, return error
                 if not all_results:

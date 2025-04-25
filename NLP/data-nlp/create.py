@@ -12,16 +12,35 @@ objects = {
     "barren": ["barren", "desert", "arid land", "barren areas", "wasteland"]
 }
 
-colors = ["cyan", "yellow", "magenta", "green", "blue", "white", "None"]
+colors = [
+    "cyan", "yellow", "magenta", "green", "blue", "white", "None",
+    "red", "light_blue", "light_green", "orange", "purple", "pink",
+    "brown", "gray", "grey", "violet", "silver", "gold", "teal"
+]
 
 # Define text templates
 templates = [
     "<object> <color>",
+    "<object> in <color>",
+    "<object> using <color>",
+    "<object> with <color>",
+    "<object> colored in <color>",
+    "<object> color <color>",
+    "<object> <color> color",
+    "<object> <color> colour",
+    "Colour <object> with <color>",
+    ",<object> <color>",
+    "and also <object> <color>",
+    "also do <object> <color>",
+    "and colour <object> <color>",
+    "and <object> <color>",
+    "Let <object> <color>",
     "Hi <object> <color>",
     "Hello <object> <color>",
     "Hey <object> <color>",
     "Go <color> <object>",
     "Make <object> <color>",
+    "Set the <object> <color>",
     "<object> be <color>",
     "<object> is <color>",
     "<object> <color> please",
@@ -33,6 +52,8 @@ templates = [
     "Is the <object> <color>",
     "Can you show me the <object> <color>",
     "Please highlight the <object> <color>",
+    "Please do <object> <color>",
+    ",and <object> <color>",
     "Show me the <object> <color>",
     "The <object> <color>",
     "The color of <object> is <color>",
